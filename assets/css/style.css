@@ -30,9 +30,7 @@
 
 .box-chat {
 
-    background-image: url('../img/mine.jpg');
     width: 70%;
-    height: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -53,6 +51,12 @@
 .header-utenti {
 
     border-right: 1px solid rgba(221, 221, 221, 1);
+}
+
+.main-chat{
+
+    background-image: url('../img/mine.jpg');
+    height: 80%;
 }
 
 .footer-chat {
@@ -151,7 +155,6 @@ i {
 
 }
 
-
 .profile{
     overflow-y: auto;
     background-color: white;
@@ -159,7 +162,7 @@ i {
 }
 
 .profile ul{
-    padding:8px 8px;
+    padding:5px 5px;
 }
 
 .profile img{

@@ -23,7 +23,6 @@
 
 <body>
 
-
     <div id="app">
 
         <!-- CONTAINER WEB APP -->
@@ -66,8 +65,8 @@
                     </div>
 
                     <div class="profile">
-                        <ul>
-                            <li v-for="element in contacts" class="list-group list-group-item list-group-item-action">
+                        <ul class="list-group">
+                            <li v-for="element in contacts" class="list-group-item list-group-item-action">
                                 <img :src=" imgPath + element.avatar + '.jpg' " alt=“”>
                                 {{element.name}}
                             </li>
@@ -78,6 +77,8 @@
 
                 <!-- BOX CHAT -->
                 <div class="box-chat">
+
+                    <!-- HEADER CHAT -->
                     <div class="header header-chat">
 
                         <div class="image-profile">
@@ -91,7 +92,13 @@
                         </div>
 
                     </div>
-                    
+
+                    <!-- MAIN CHAT -->
+                    <div class="main-chat">
+
+                    </div>
+
+                    <!-- FOOTER CHAT -->
                     <div class="footer-chat">
 
                         <div><i class="fa-regular fa-face-smile"></i></div>
