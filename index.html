@@ -60,6 +60,7 @@
 
                     </div>
 
+                    <!-- INPUT DI RICERCA CHAT -->
                     <div class="ricerca">
                         <input type="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -67,8 +68,24 @@
                     <div class="profile">
                         <ul class="list-group">
                             <li v-for="element in contacts" class="list-group-item list-group-item-action">
-                                <img :src=" imgPath + element.avatar + '.jpg' " alt=“”>
-                                {{element.name}}
+
+                                <div class="d-flex">
+                                    <div class="d-flex">
+    
+                                        <img :src=" imgPath + element.avatar + '.jpg' " alt=“”>
+                                        <div class="ps-3">
+                                            <div>{{element.name}}</div>
+                                            <p><small class="text-muted">Ultimo messaggio inviato</small></p>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                        <p><small class="text-muted">12:00</small></p>
+
+                                    </div>
+
+                                </div>
+                                
                             </li>
                         </ul>
                     </div>
@@ -95,6 +112,11 @@
 
                     <!-- MAIN CHAT -->
                     <div class="main-chat">
+
+                        <!-- <div v-for="element in contacts">
+                            <p>{{element.message}}</p>
+                        </div> -->
+
 
                     </div>
 
