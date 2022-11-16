@@ -62,7 +62,9 @@
 
                     <!-- INPUT DI RICERCA CHAT -->
                     <div class="ricerca">
-                        <input type="search" placeholder="Cerca o inizia una nuova chat">
+                        
+                        <input type="search" v-model="search" @keyup.enter="searchIn()" placeholder="Cerca o inizia una nuova chat">
+
                     </div>
 
                     <div class="profile">

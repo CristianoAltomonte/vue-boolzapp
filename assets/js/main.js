@@ -5,7 +5,7 @@ var app = new Vue(
 
       imgPath: '../assets/img/avatar',
       indiceDinamico: 0,
-      inputMessage: '',
+      search: "",
 
       contacts: [
         {
@@ -208,7 +208,8 @@ var app = new Vue(
         }
         return this.contacts[this.indiceDinamico].messages.push(obj);
 
-      }
+      },
+
     },
   }
 )

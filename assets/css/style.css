@@ -57,6 +57,11 @@
 
     background-image: url('../img/mine.jpg');
     height: 80%;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 .footer-chat {
