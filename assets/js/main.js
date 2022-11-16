@@ -5,6 +5,7 @@ var app = new Vue(
 
       imgPath: '../assets/img/avatar',
       indiceDinamico: 0,
+      inputMessage: '',
 
       contacts: [
         {
@@ -173,9 +174,40 @@ var app = new Vue(
 
     methods: {
 
-      selectedChat(element,index){
+      selectedChat(element, index) {
 
         this.indiceDinamico = index;
+      },
+
+      sendMessage() {
+
+        if (this.newMessage == '') {
+
+        } else {
+
+          let obj = {
+
+            date: '10/01/2020 15:51:00',
+            message: this.newMessage,
+            status: 'sent',
+          }
+          this.newMessage = '';
+          setTimeout(this.atuomaticAnswer, 1000);
+          return this.contacts[this.indiceDinamico].messages.push(obj);
+        }
+
+      },
+
+      atuomaticAnswer() {
+
+        let obj = {
+
+          date: '10/01/2020 15:51:00',
+          message: 'funzionaaaaa tuttoooooo !!!!!',
+          status: 'received',
+        }
+        return this.contacts[this.indiceDinamico].messages.push(obj);
+
       }
     },
   }

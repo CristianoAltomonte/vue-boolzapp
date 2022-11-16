@@ -191,5 +191,6 @@ i {
     max-width: 50%;
     border-radius: 10px;
     padding: 8px;
+    align-self: flex-start;
     margin-bottom: 10px;
 }

@@ -67,11 +67,12 @@
 
                     <div class="profile">
                         <ul class="list-group">
-                            <li v-for="(element, index) in contacts" @click="selectedChat (element, index)" class="list-group-item list-group-item-action">
+                            <li v-for="(element, index) in contacts" @click="selectedChat (element, index)"
+                                class="list-group-item list-group-item-action">
 
                                 <div class="d-flex">
                                     <div class="d-flex">
-    
+
                                         <img :src=" imgPath + element.avatar + '.jpg' " alt=“”>
                                         <div class="ps-3">
                                             <div>{{element.name}}</div>
@@ -85,7 +86,7 @@
                                     </div>
 
                                 </div>
-                                
+
                             </li>
                         </ul>
                     </div>
@@ -99,7 +100,7 @@
                     <div class="header header-chat">
 
                         <div class="image-profile">
-                            <img :src= "`../assets/img/avatar${contacts[indiceDinamico].avatar}.jpg`" alt="profile">
+                            <img :src="`../assets/img/avatar${contacts[indiceDinamico].avatar}.jpg`" alt="profile">
                             <span>{{contacts[indiceDinamico].name}}</span>
                         </div>
                         <div class="icons">
@@ -121,8 +122,9 @@
                             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab numquam ad nobis voluptatum ea ex non eligendi? Sed fuga reiciendis labore reprehenderit tempore, suscipit quia quis aspernatur quibusdam magni?</p>
                         </div> -->
 
-                        <div v-for="(elem, index) in contacts[indiceDinamico].messages" :class= "(elem.status =='sent') ? 'sent' : 'received'">
-                            <p>{{elem.message}}</p>
+                        <div v-for="(element, index) in contacts[indiceDinamico].messages"
+                            :class="(element.status =='sent') ? 'sent' : 'received'">
+                            <p>{{element.message}}</p>
 
                         </div>
 
@@ -132,7 +134,7 @@
                     <div class="footer-chat">
 
                         <div><i class="fa-regular fa-face-smile"></i></div>
-                        <div><input type="text" placeholder="Scrivi un messaggio" id="text-message"></div>
+                        <div><input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage()" id="text-message"></div>
                         <div><i class="fa-solid fa-microphone"></i></div>
 
                     </div>
