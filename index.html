@@ -67,7 +67,7 @@
 
                     <div class="profile">
                         <ul class="list-group">
-                            <li v-for="element in contacts" class="list-group-item list-group-item-action">
+                            <li v-for="(element, index) in contacts" @click="selectedChat (element, index)" class="list-group-item list-group-item-action">
 
                                 <div class="d-flex">
                                     <div class="d-flex">
@@ -99,8 +99,8 @@
                     <div class="header header-chat">
 
                         <div class="image-profile">
-                            <img src="./assets/img/avatar_1.jpg" alt="profile">
-                            <span>Michele</span>
+                            <img :src= "`../assets/img/avatar${contacts[indiceDinamico].avatar}.jpg`" alt="profile">
+                            <span>{{contacts[indiceDinamico].name}}</span>
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -113,14 +113,18 @@
                     <!-- MAIN CHAT -->
                     <div class="main-chat p-3 d-flex flex-column">
 
-                        <div class="sent">
+                        <!-- <div class="sent">
                             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab numquam ad nobis voluptatum ea ex non eligendi? Sed fuga reiciendis labore reprehenderit tempore, suscipit quia quis aspernatur quibusdam magni?</p>
                         </div>
 
                         <div class="received">
                             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab numquam ad nobis voluptatum ea ex non eligendi? Sed fuga reiciendis labore reprehenderit tempore, suscipit quia quis aspernatur quibusdam magni?</p>
-                        </div>
+                        </div> -->
 
+                        <div v-for="(elem, index) in contacts[indiceDinamico].messages" :class= "(elem.status =='sent') ? 'sent' : 'received'">
+                            <p>{{elem.message}}</p>
+
+                        </div>
 
                     </div>
 

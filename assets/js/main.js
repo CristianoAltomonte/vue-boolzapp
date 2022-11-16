@@ -4,7 +4,8 @@ var app = new Vue(
     data: {
 
       imgPath: '../assets/img/avatar',
-  
+      indiceDinamico: 0,
+
       contacts: [
         {
           name: 'Michele',
@@ -170,6 +171,12 @@ var app = new Vue(
       ]
     },
 
-    methods: {},
+    methods: {
+
+      selectedChat(element,index){
+
+        this.indiceDinamico = index;
+      }
+    },
   }
 )
