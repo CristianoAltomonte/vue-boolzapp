@@ -78,12 +78,12 @@
                                         <img :src=" imgPath + element.avatar + '.jpg' " alt=“”>
                                         <div class="ps-3">
                                             <div>{{element.name}}</div>
-                                            <p><small class="text-muted">Ultimo messaggio inviato</small></p>
+                                            <span><small class="text-muted">{{ lastMessageSent(element).message }}</small></span>
                                         </div>
                                     </div>
                                     <div>
 
-                                        <p><small class="text-muted">12:00</small></p>
+                                        <span><small class="text-muted">{{ timeMessage(element) }}</small></span>
 
                                     </div>
 
@@ -101,10 +101,18 @@
                     <!-- HEADER CHAT -->
                     <div class="header header-chat">
 
-                        <div class="image-profile">
-                            <img :src="`../assets/img/avatar${contacts[indiceDinamico].avatar}.jpg`" alt="profile">
-                            <span>{{contacts[indiceDinamico].name}}</span>
+                        <div class="d-flex">
+                            <div class="image-profile">
+                                <img :src="`../assets/img/avatar${contacts[indiceDinamico].avatar}.jpg`" alt="profile">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span>{{contacts[indiceDinamico].name}}</span>
+                                <span class="text-muted ">Ultimo accesso {{contacts[indiceDinamico].messages[0].date}}</span>
+                            </div>
                         </div>
+                        
+                        
+
                         <div class="icons">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
@@ -116,17 +124,10 @@
                     <!-- MAIN CHAT -->
                     <div class="main-chat p-3 d-flex flex-column">
 
-                        <!-- <div class="sent">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab numquam ad nobis voluptatum ea ex non eligendi? Sed fuga reiciendis labore reprehenderit tempore, suscipit quia quis aspernatur quibusdam magni?</p>
-                        </div>
-
-                        <div class="received">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab numquam ad nobis voluptatum ea ex non eligendi? Sed fuga reiciendis labore reprehenderit tempore, suscipit quia quis aspernatur quibusdam magni?</p>
-                        </div> -->
-
                         <div v-for="(element, index) in contacts[indiceDinamico].messages"
                             :class="(element.status =='sent') ? 'sent' : 'received'">
-                            <p>{{element.message}}</p>
+                            <span>{{element.message}}</span>
+                            <span class="text-muted d-flex flex-column align-items-end"> {{ messageTime(element, indiceDinamico) }} </span>
 
                         </div>
 
@@ -151,15 +152,19 @@
 
     </div>
 
+    <!-- Day.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
     <!-- Bootstrap 5 script -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
         </script>
+
     <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
     <!-- Javascript -->
     <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
-

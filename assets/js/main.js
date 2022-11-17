@@ -183,7 +183,7 @@ var app = new Vue(
       selectedChat(element, index) {
 
         this.indiceDinamico = index;
-        
+
       },
 
       /* Milestone 3
@@ -194,13 +194,18 @@ var app = new Vue(
 
       sendMessage() {
 
+        let day = new Date();
+        let today = day.toLocaleDateString();
+        let instantHour = dayjs().format('H:mm');
+        let currentDay = today + instantHour;
+
         if (this.newMessage == '') {
 
         } else {
 
           let obj = {
 
-            date: '10/01/2020 15:51:00',
+            date: currentDay,
             message: this.newMessage,
             status: 'sent',
           }
@@ -213,9 +218,14 @@ var app = new Vue(
 
       atuomaticAnswer() {
 
+        let day = new Date();
+        let today = day.toLocaleDateString();
+        let instantHour = dayjs().format('H:mm');
+        let currentDay = today + instantHour;
+
         let obj = {
 
-          date: '10/01/2020 15:51:00',
+          date: currentDay,
           message: 'funzionaaaaa tuttoooooo !!!!!',
           status: 'received',
         }
@@ -246,12 +256,34 @@ var app = new Vue(
           }
 
         });
-      }
+      },
 
+      messageTime(element) {
+
+        let date = element.date;
+        let time = date.slice(10, 16);
+
+        return time;
+      },
+
+
+      lastMessageSent(element) {
+
+        return element.messages[element.messages.length - 1];
+        
+      },
+
+      timeMessage(element) {
+        
+        let position = element.messages;
+        let indextimeMessage = position.length - 1;
+
+        let date = position[indextimeMessage].date;
+        let time = date.slice(10, 16);
+
+        return time;
+      },
 
     },
   }
 )
-
-
-
