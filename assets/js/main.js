@@ -3,7 +3,7 @@ var app = new Vue(
     el: '#app',
     data: {
 
-      imgPath: '../assets/img/avatar',
+      imgPath: './assets/img/avatar',
       indiceDinamico: 0,
       search: "",
 
